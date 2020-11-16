@@ -1,5 +1,11 @@
 # firebase-react-provider
 
+## 0.1.3
+
+### Patch Changes
+
+- e87c72d: Just a test bump
+
 ## 0.1.2
 
 ### Patch Changes
