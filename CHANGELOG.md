@@ -1,5 +1,11 @@
 # firebase-react-provider
 
+## 0.1.6
+
+### Patch Changes
+
+- e661231: Testing the .npmrc setup
+
 ## 0.1.5
 
 ### Patch Changes
