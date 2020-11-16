@@ -1,5 +1,11 @@
 # firebase-react-provider
 
+## 0.1.4
+
+### Patch Changes
+
+- 857325e: Chore: testing setup
+
 ## 0.1.3
 
 ### Patch Changes
