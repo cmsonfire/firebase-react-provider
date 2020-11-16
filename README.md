@@ -2,7 +2,7 @@
 
 This library is a React component (provider) using React Hooks and requires some dependencies:
 
-- react (>=6.13.0)
+- react (>=16.13.0)
 - firebase (>=7.23.0 recommended)
 
 Although the library is named `FirebaseProvider`, you should be aware **this library is using: firebase/app, firebase/auth**. If you are going to use other parts of firebase (i.e. storage or firestore), you can `import { firebase }` from `firebase-react-provider` and then dynamically import the extensions. Do this prior to using the FirebaseProvider in your app and within the scope of the same module.
