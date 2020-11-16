@@ -24,7 +24,9 @@ jobs:
         run: yarn
 
       - name: Set up NPM authentication
-        run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" >> ~/.npmrc
+        run: |
+          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" >> ~/.npmrc
+          npm ci
 
       - name: Create Release Pull Request or Publish to npm
         id: changesets
