@@ -11,11 +11,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@master
+        uses: actions/checkout@v2
         with:
           fetch-depth: 0
       - name: Setup Node.js 14.x
-        uses: actions/setup-node@master
+        uses: actions/setup-node@v2-beta
         with:
           node-version: "14"
           registry-url: "https://registry.npmjs.org"
