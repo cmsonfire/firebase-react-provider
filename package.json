@@ -72,9 +72,5 @@
       "eslint --cache --fix",
       "prettier --write"
     ]
-  },
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org",
-    "access": "public"
   }
 }
