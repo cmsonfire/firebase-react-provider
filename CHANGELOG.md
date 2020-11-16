@@ -1,5 +1,11 @@
 # firebase-react-provider
 
+## 0.1.5
+
+### Patch Changes
+
+- 04dedbc: Changeset config set to restricted. Should be public.
+
 ## 0.1.4
 
 ### Patch Changes
