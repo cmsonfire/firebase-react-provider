@@ -1,5 +1,11 @@
 # firebase-react-provider
 
+## 0.1.7
+
+### Patch Changes
+
+- 65e99cc: Use node type for children on props
+
 ## 0.1.6
 
 ### Patch Changes
