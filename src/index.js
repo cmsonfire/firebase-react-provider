@@ -194,7 +194,10 @@ function FirebaseProvider({ children, config = {}, name = "[DEFAULT]" }) {
 }
 
 FirebaseProvider.propTypes = {
-  children: PropTypes.any.required,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]).isRequired,
   config: PropTypes.object,
   name: PropTypes.string,
 };
