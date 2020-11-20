@@ -6,17 +6,17 @@ import peerDepsExternal from "rollup-plugin-peer-deps-external";
 const packageJson = require("./package.json");
 
 export default {
-  input: "src/index.js",
+  input: ["src/index.js"],
   output: [
     {
-      file: packageJson.main,
+      // file: packageJson.main,
+      dir: "dist",
       format: "cjs",
-      sourcemap: true,
     },
     {
-      file: packageJson.module,
+      // file: packageJson.module,
+      dir: "dist/esm",
       format: "es",
-      sourcemap: true,
     },
   ],
   plugins: [
