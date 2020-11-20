@@ -7,6 +7,8 @@
   "license": "MIT",
   "files": [
     "/dist",
+    "/firestore",
+    "/storage",
     "/src"
   ],
   "repository": {
@@ -15,8 +17,10 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.12.1",
-    "firebase": "^7.23.0",
-    "prop-types": "^15.7.2"
+    "@cmsonfire/admin-provider": "0.1.0",
+    "@cmsonfire/firestore-provider": "0.1.0",
+    "@cmsonfire/storage-provider": "0.1.0",
+    "firebase": "^7.23.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.12.1",
