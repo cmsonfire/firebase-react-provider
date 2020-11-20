@@ -1,0 +1,6 @@
+{
+  "name": "firebase-react-provider/firestore",
+  "description": "The firestore context provider for firebase-react-provider.",
+  "main": "dist/index.js",
+  "module": "dist/esm/index.js"
+}

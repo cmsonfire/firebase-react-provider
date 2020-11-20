@@ -1,4 +1,4 @@
-console.log("Babel for @cmsonfire/aminprovider");
+console.log("Babel for @cmsonfire/firestore-provider");
 
 module.exports = {
   presets: ["@babel/preset-env", "@babel/preset-react"],
