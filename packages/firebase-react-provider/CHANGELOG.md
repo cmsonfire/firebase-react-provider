@@ -1,5 +1,11 @@
 # firebase-react-provider
 
+## 0.2.0
+
+### Minor Changes
+
+- 0790a1b: mono-repo; add @cmsonfire/admin-provider as main library
+
 ## 0.1.7
 
 ### Patch Changes
