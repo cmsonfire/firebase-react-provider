@@ -1,6 +1,6 @@
 {
   "name": "firebase-react-provider",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "main": "dist/index.js",
   "module": "dist/esm/index.js",
   "author": "talves <tony@3alves.com> (@talves)",
@@ -17,9 +17,9 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.12.1",
-    "@cmsonfire/admin-provider": "0.1.0",
-    "@cmsonfire/firestore-provider": "0.1.0",
-    "@cmsonfire/storage-provider": "0.1.0",
+    "@cmsonfire/admin-provider": "0.2.0",
+    "@cmsonfire/firestore-provider": "1.0.0",
+    "@cmsonfire/storage-provider": "1.0.0",
     "firebase": "^7.23.0"
   },
   "devDependencies": {

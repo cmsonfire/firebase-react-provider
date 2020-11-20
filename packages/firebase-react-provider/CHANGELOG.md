@@ -1,5 +1,20 @@
 # firebase-react-provider
 
+## 0.3.0
+
+### Minor Changes
+
+- 351cab4: adding new providers to main package firebase-react-provider
+
+### Patch Changes
+
+- Updated dependencies [351cab4]
+- Updated dependencies [1a4677d]
+- Updated dependencies [1090818]
+  - @cmsonfire/admin-provider@0.2.0
+  - @cmsonfire/storage-provider@1.0.0
+  - @cmsonfire/firestore-provider@1.0.0
+
 ## 0.2.0
 
 ### Minor Changes
