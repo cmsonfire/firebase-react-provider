@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "workspaces": [
-    "packages/**/*",
+    "packages/firebase-react-provider",
+    "packages/@cmsonfire/*",
     "www/*"
   ],
   "repository": "git@github.com:cmsonfire/firebase-react-provider.git",
