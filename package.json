@@ -12,7 +12,8 @@
   "scripts": {
     "build:admin": "yarn workspace @cmsonfire/admin-provider build:lib",
     "build:main": "yarn workspace firebase-react-provider build:lib",
-    "build": "yarn build:admin && yarn build:main"
+    "build": "yarn build:admin && yarn build:main",
+    "release": "yarn changeset publish"
   },
   "dependencies": {
     "@changesets/cli": "^2.11.2"
