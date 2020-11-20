@@ -37,12 +37,15 @@ const config = {
   databaseURL: "https://your-app-name.firebaseio.com",
   projectId: "your-app-name",
   storageBucket: "your-app-name.appspot.com",
-}
+};
 
 ReactDOM.render(
-  <FirebaseProvider config={config} name={/* optional, defaults to [DEFAULT] */}>
+  <FirebaseProvider
+    config={config}
+    name={/* optional, defaults to [DEFAULT] */}
+  >
     <App />
-  </FirebaseProvider>
+  </FirebaseProvider>,
   document.getElementById("root")
 );
 ```
@@ -58,7 +61,7 @@ const config = {
   databaseURL: "https://default-app-name.firebaseio.com",
   projectId: "default-app-name",
   storageBucket: "default-app-name.appspot.com",
-}
+};
 
 const adminConfig = {
   apiKey: "PXiFa.................................",
@@ -66,14 +69,83 @@ const adminConfig = {
   databaseURL: "https://admin-app-name.firebaseio.com",
   projectId: "admin-app-name",
   storageBucket: "admin-app-name.appspot.com",
-}
+};
 
 ReactDOM.render(
-  <FirebaseProvider config={config} name={/* optional, defaults to [DEFAULT] */}>
+  <FirebaseProvider
+    config={config}
+    name={/* optional, defaults to [DEFAULT] */}
+  >
     <FirebaseProvider config={adminConfig} name="admin">
       <App />
     </FirebaseProvider>
+  </FirebaseProvider>,
+  document.getElementById("root")
+);
+```
+
+## Using FirestoreProvider
+
+```js
+import { FirebaseProvider } from "firebase-react-provider";
+import { FirestoreProvider } from 'firebase-react-provider/firestore'
+
+const config = {
+  apiKey: "AIza...................................",
+  authDomain: "your-app-name.firebaseapp.com",
+  databaseURL: "https://your-app-name.firebaseio.com",
+  projectId: "your-app-name",
+  storageBucket: "your-app-name.appspot.com",
+}
+
+const AppWrapper = (name) => {
+  return <FirestoreProvider name={name}><App /></FirestoreProvider>
+}
+
+ReactDOM.render(
+ReactDOM.render(
+  <FirebaseProvider config={config} name={/* optional, defaults to [DEFAULT] */}>
+    <AppWrapper name={/* optional, defaults to [DEFAULT] */} />
   </FirebaseProvider>
+  document.getElementById("root")
+);
+  document.getElementById("root")
+);
+
+```
+
+## Using StorageProvider
+
+```js
+import { FirebaseProvider } from "firebase-react-provider";
+import { FirestoreProvider } from "firebase-react-provider/firestore";
+import { StorageProvider } from "firebase-react-provider/firestore";
+
+const config = {
+  apiKey: "AIza...................................",
+  authDomain: "your-app-name.firebaseapp.com",
+  databaseURL: "https://your-app-name.firebaseio.com",
+  projectId: "your-app-name",
+  storageBucket: "your-app-name.appspot.com",
+};
+
+const AppWrapper = (name) => {
+  return (
+    <FirestoreProvider name={name}>
+      <StorageProvider name={name}>
+        <App />
+      </StorageProvider>
+    </FirestoreProvider>
+  );
+};
+
+ReactDOM.render(
+  <FirebaseProvider
+    config={config}
+    name={/* optional, defaults to [DEFAULT] */}
+  >
+    <AppWrapper name={/* optional, defaults to [DEFAULT] */} />
+  </FirebaseProvider>,
   document.getElementById("root")
 );
 ```
