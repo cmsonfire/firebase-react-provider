@@ -11,8 +11,11 @@
   "license": "MIT",
   "scripts": {
     "build:admin": "yarn workspace @cmsonfire/admin-provider build:lib",
+    "build:firestore": "yarn workspace @cmsonfire/firestore-provider build:lib",
+    "build:storage": "yarn workspace @cmsonfire/storage-provider build:lib",
     "build:main": "yarn workspace firebase-react-provider build:lib",
-    "build": "yarn build:admin && yarn build:main",
+    "build:all": "yarn build:admin && yarn build:firestore && yarn build:storage && yarn build:main",
+    "build": "yarn build:all",
     "release": "yarn changeset publish"
   },
   "dependencies": {
