@@ -4,28 +4,45 @@ import commonjs from "@rollup/plugin-commonjs";
 import peerDepsExternal from "rollup-plugin-peer-deps-external";
 
 const packageJson = require("./package.json");
+const plugins = [
+  peerDepsExternal(),
+  resolve({
+    browser: true,
+    resolveOnly: [/^(?!react$)/, /^(?!react-dom$)/, /^(?!prop-types)/],
+  }),
+  babel({ babelHelpers: "runtime" }),
+  commonjs(),
+];
 
-export default {
-  input: ["src/index.js"],
-  output: [
+const getOutput = (dirBase = "dist") => {
+  return [
     {
       // file: packageJson.main,
-      dir: "dist",
+      dir: `${dirBase}`,
       format: "cjs",
     },
     {
       // file: packageJson.module,
-      dir: "dist/esm",
+      dir: `${dirBase}/esm`,
       format: "es",
     },
-  ],
-  plugins: [
-    peerDepsExternal(),
-    resolve({
-      browser: true,
-      resolveOnly: [/^(?!react$)/, /^(?!react-dom$)/, /^(?!prop-types)/],
-    }),
-    babel({ babelHelpers: "runtime" }),
-    commonjs(),
-  ],
+  ];
 };
+
+export default [
+  {
+    input: ["src/index.js"],
+    output: getOutput(),
+    plugins,
+  },
+  {
+    input: ["firestore/index.js"],
+    output: getOutput("firestore/dist"),
+    plugins,
+  },
+  {
+    input: ["storage/index.js"],
+    output: getOutput("storage/dist"),
+    plugins,
+  },
+];
