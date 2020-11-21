@@ -1,3 +1,1 @@
-import { useStorage, StorageProvider } from "@cmsonfire/storage-provider";
-
-export { useStorage, StorageProvider };
+export { useStorage, StorageProvider } from "@cmsonfire/storage-provider";

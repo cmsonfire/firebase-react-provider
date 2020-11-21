@@ -1,3 +1,1 @@
-import { useFirestore, FirestoreProvider } from "@cmsonfire/firestore-provider";
-
-export { useFirestore, FirestoreProvider };
+export { useFirestore, FirestoreProvider } from "@cmsonfire/firestore-provider";
