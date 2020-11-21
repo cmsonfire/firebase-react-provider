@@ -5,7 +5,15 @@ This library is a React component (provider) using React Hooks and requires some
 - react (>=16.13.0)
 - firebase (>=7.23.0 recommended)
 
-Although the library is named `FirebaseProvider`, you should be aware **this library is using: firebase/app, firebase/auth**. If you are going to use other parts of firebase (i.e. storage or firestore), you can `import { firebase }` from `firebase-react-provider` and then dynamically import the extensions. Do this prior to using the FirebaseProvider in your app and within the scope of the same module.
+This library has 3 parts:
+
+- `firebase-react-provider`
+- `firebase-react-provider/firestore`
+- `firebase-react-provider/storage`
+
+The main library uses **firebase/app, firebase/auth** to setup your firebase application for auth. The sub-libraries give you a context provider for each.
+
+You can use the method below to setup these without the associated providers, but you will need to create your own state context to be used within your React components.
 
 ```js
 // firebase here is the equivalent of the 'firebase/app' import
@@ -37,12 +45,15 @@ const config = {
   databaseURL: "https://your-app-name.firebaseio.com",
   projectId: "your-app-name",
   storageBucket: "your-app-name.appspot.com",
-}
+};
 
 ReactDOM.render(
-  <FirebaseProvider config={config} name={/* optional, defaults to [DEFAULT] */}>
+  <FirebaseProvider
+    config={config}
+    name={/* optional, defaults to [DEFAULT] */}
+  >
     <App />
-  </FirebaseProvider>
+  </FirebaseProvider>,
   document.getElementById("root")
 );
 ```
@@ -58,7 +69,7 @@ const config = {
   databaseURL: "https://default-app-name.firebaseio.com",
   projectId: "default-app-name",
   storageBucket: "default-app-name.appspot.com",
-}
+};
 
 const adminConfig = {
   apiKey: "PXiFa.................................",
@@ -66,14 +77,94 @@ const adminConfig = {
   databaseURL: "https://admin-app-name.firebaseio.com",
   projectId: "admin-app-name",
   storageBucket: "admin-app-name.appspot.com",
-}
+};
 
 ReactDOM.render(
-  <FirebaseProvider config={config} name={/* optional, defaults to [DEFAULT] */}>
+  <FirebaseProvider
+    config={config}
+    name={/* optional, defaults to [DEFAULT] */}
+  >
     <FirebaseProvider config={adminConfig} name="admin">
       <App />
     </FirebaseProvider>
+  </FirebaseProvider>,
+  document.getElementById("root")
+);
+```
+
+## Using FirestoreProvider
+
+```js
+import { FirebaseProvider } from "firebase-react-provider";
+import { FirestoreProvider } from 'firebase-react-provider/firestore'
+
+const config = {
+  apiKey: "AIza...................................",
+  authDomain: "your-app-name.firebaseapp.com",
+  databaseURL: "https://your-app-name.firebaseio.com",
+  projectId: "your-app-name",
+  storageBucket: "your-app-name.appspot.com",
+}
+
+const AppWrapper = (name) => {
+  return <FirestoreProvider name={name}><App /></FirestoreProvider>
+}
+
+ReactDOM.render(
+ReactDOM.render(
+  <FirebaseProvider config={config} name={/* optional, defaults to [DEFAULT] */}>
+    <AppWrapper name={/* optional, defaults to [DEFAULT] */} />
   </FirebaseProvider>
+  document.getElementById("root")
+);
+  document.getElementById("root")
+);
+
+```
+
+## Using StorageProvider
+
+```js
+import { FirebaseProvider } from "firebase-react-provider";
+import {
+  FirestoreProvider,
+  useFirestore,
+} from "firebase-react-provider/firestore";
+import { StorageProvider, useStorage } from "firebase-react-provider/storage";
+
+const config = {
+  apiKey: "AIza...................................",
+  authDomain: "your-app-name.firebaseapp.com",
+  databaseURL: "https://your-app-name.firebaseio.com",
+  projectId: "your-app-name",
+  storageBucket: "your-app-name.appspot.com",
+};
+
+const App = () => {
+  const db = useFirestore();
+  console.log("db", db);
+  const storage = useStorage();
+  console.log("storage", storage);
+  return <div>{storage && db ? "Loaded storage" : "Loading storage ..."}</div>;
+};
+
+const AppWrapper = (name) => {
+  return (
+    <FirestoreProvider name={name}>
+      <StorageProvider name={name}>
+        <App />
+      </StorageProvider>
+    </FirestoreProvider>
+  );
+};
+
+ReactDOM.render(
+  <FirebaseProvider
+    config={config}
+    name={/* optional, defaults to [DEFAULT] */}
+  >
+    <AppWrapper name={/* optional, defaults to [DEFAULT] */} />
+  </FirebaseProvider>,
   document.getElementById("root")
 );
 ```
