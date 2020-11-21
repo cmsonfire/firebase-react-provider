@@ -5,7 +5,15 @@ This library is a React component (provider) using React Hooks and requires some
 - react (>=16.13.0)
 - firebase (>=7.23.0 recommended)
 
-Although the library is named `FirebaseProvider`, you should be aware **this library is using: firebase/app, firebase/auth**. If you are going to use other parts of firebase (i.e. storage or firestore), you can `import { firebase }` from `firebase-react-provider` and then dynamically import the extensions. Do this prior to using the FirebaseProvider in your app and within the scope of the same module.
+This library has 3 parts:
+
+- `firebase-react-provider`
+- `firebase-react-provider/firestore`
+- `firebase-react-provider/storage`
+
+The main library uses **firebase/app, firebase/auth** to setup your firebase application for auth. The sub-libraries give you a context provider for each.
+
+You can use the method below to setup these without the associated providers, but you will need to create your own state context to be used within your React components.
 
 ```js
 // firebase here is the equivalent of the 'firebase/app' import
@@ -118,8 +126,11 @@ ReactDOM.render(
 
 ```js
 import { FirebaseProvider } from "firebase-react-provider";
-import { FirestoreProvider } from "firebase-react-provider/firestore";
-import { StorageProvider } from "firebase-react-provider/firestore";
+import {
+  FirestoreProvider,
+  useFirestore,
+} from "firebase-react-provider/firestore";
+import { StorageProvider, useStorage } from "firebase-react-provider/storage";
 
 const config = {
   apiKey: "AIza...................................",
@@ -127,6 +138,14 @@ const config = {
   databaseURL: "https://your-app-name.firebaseio.com",
   projectId: "your-app-name",
   storageBucket: "your-app-name.appspot.com",
+};
+
+const App = () => {
+  const db = useFirestore();
+  console.log("db", db);
+  const storage = useStorage();
+  console.log("storage", storage);
+  return <div>{storage && db ? "Loaded storage" : "Loading storage ..."}</div>;
 };
 
 const AppWrapper = (name) => {
