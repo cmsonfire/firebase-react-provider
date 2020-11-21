@@ -1,5 +1,15 @@
 # firebase-react-provider
 
+## 0.3.1
+
+### Patch Changes
+
+- 69135fb: exclude peer deps from bundling code in firebase-react-provider lib
+- Updated dependencies [69135fb]
+  - @cmsonfire/admin-provider@0.2.1
+  - @cmsonfire/firestore-provider@1.0.1
+  - @cmsonfire/storage-provider@1.0.1
+
 ## 0.3.0
 
 ### Minor Changes
