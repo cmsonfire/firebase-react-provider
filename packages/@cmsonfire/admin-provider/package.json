@@ -1,6 +1,6 @@
 {
   "name": "@cmsonfire/admin-provider",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "main": "dist/index.js",
   "module": "dist/esm/index.js",
   "author": "talves <tony@3alves.com> (@talves)",

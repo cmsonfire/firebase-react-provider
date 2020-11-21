@@ -1,6 +1,6 @@
 {
   "name": "@cmsonfire/storage-provider",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "dist/index.js",
   "module": "dist/esm/index.js",
   "author": "talves <tony@3alves.com> (@talves)",
@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.12.1",
-    "@cmsonfire/admin-provider": "0.2.0",
+    "@cmsonfire/admin-provider": "0.2.1",
     "firebase": "^7.23.0",
     "prop-types": "^15.7.2"
   },
@@ -40,7 +40,7 @@
   },
   "peerDependencies": {
     "@babel/runtime": "^7.12.0",
-    "@cmsonfire/admin-provider": "0.2.0",
+    "@cmsonfire/admin-provider": "0.2.1",
     "firebase": "^7.23.0",
     "prop-types": "^15.7.2",
     "react": "^16.14.0"
