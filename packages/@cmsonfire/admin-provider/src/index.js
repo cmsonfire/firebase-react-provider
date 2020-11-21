@@ -10,6 +10,10 @@ import "firebase/auth"; // make sure you add this for auth
 // import 'firebase/storage' // make sure you add this for storage
 // See: ./README.md
 
+/* using a global variable to export firebase, because rollup
+  error  Import in body of module; reorder to top  import/first */
+const globalFirebase = firebase;
+
 export function usePrevious(value) {
   const ref = React.useRef();
   React.useEffect(() => {
@@ -202,4 +206,4 @@ FirebaseProvider.propTypes = {
   name: PropTypes.string,
 };
 
-export { FirebaseProvider, firebase };
+export { FirebaseProvider, globalFirebase as firebase };
