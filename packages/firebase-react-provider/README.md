@@ -111,15 +111,11 @@ const AppWrapper = (name) => {
 }
 
 ReactDOM.render(
-ReactDOM.render(
   <FirebaseProvider config={config} name={/* optional, defaults to [DEFAULT] */}>
     <AppWrapper name={/* optional, defaults to [DEFAULT] */} />
   </FirebaseProvider>
   document.getElementById("root")
 );
-  document.getElementById("root")
-);
-
 ```
 
 ## Using StorageProvider
